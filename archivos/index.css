@@ -1,0 +1,91 @@
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #DBECF4;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #194569;
+  color: white;
+  height: auto;
+  width: auto;
+  border-radius: 5%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container h2 {
+  width: auto;
+  text-align: center;
+  font-size: 5vh;
+  margin: 1vw;
+}
+
+.form-group {
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 1.3vw;
+  font-size: 2.5vh;
+}
+
+.form-group label {
+  align-items: left;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.form-group input {
+  height: 3vh;
+  width: 50vw;
+  background-color: #DBECF4;
+
+}
+
+.form-group button {
+  width: 10vw;
+  height: 8vh;
+  font-size: 1.5vw;
+}
+
+#boton.form-group {
+  justify-content: center;
+  align-items: center;
+
+}
+
+.form-group button {
+  width: 15vw;
+  height: 5vh;
+  font-size: 2vw;
+  border-radius: 30px;
+  background-color: #DBECF4;
+  color: #194569;
+}
+
+@media only screen and (min-width: 1023px) {
+  .form-group input {
+    width: 20vw;
+    height: 5vh;
+  }
+
+  .form-group button {
+    width: 10vw;
+    font-size: 1vw;
+
+  }
+
+  .login-container {
+    width: 30vw;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/interfaz_usuario.css">
+  <title>Envíe su mensaje</title>
+</head>
+<body>
+  <div class="div">
+    <h1>Enviar Ticket</h1>
+  </div>
+  <div class="contenedor">
+    <form action="documento.php" method="POST">
+      <div class="subcont1">
+        <div class="aula">
+          <label for="aula">Seleccione el Aula:</label>
+          <select id="aula" name="aula">
+            <option value="aula1">Aula 1</option>
+            <option value="aula2">Aula 2</option>
+            <option value="aula3">Aula 3</option>
+          </select>
+        </div>
+        <div class="materia">
+          <label for="materia">Materia:</label>
+          <input type="text" id="materia" name="materia" placeholder="Ingrese la materia">
+        </div>
+      </div>
+      <div class="subcont2">
+      <div class="categoria">
+        <label for="categoria">Categoría:</label>
+        <select id="categoria" name="categoria">
+          <option value="categoria1">Categoría 1</option>
+          <option value="categoria2">Categoría 2</option>
+          <option value="categoria3">Categoría 3</option>
+        </select>
+      </div>
+      <div class="fecha">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha">
+      </div>
+    </div>
+      <div>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="6" placeholder="Ingrese su mensaje aquí"></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>

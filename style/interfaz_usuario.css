@@ -1,0 +1,125 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  background-color: #F3F3FE;
+}
+
+.contenedor {
+  height: 45vh;
+  width: 35vw;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #E9F1FD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  border-radius: 10px;
+}
+
+.div{
+  background-color: #E9F1FD;
+  height: 9vh;
+  border-bottom: 1px solid #ccc; /* Agregar borde inferior gris */
+  border-radius: 10px;
+
+}
+
+.div h1{
+  margin: 4%;
+}
+
+form{
+  margin-top: 0px;
+}
+
+.subcont1{
+
+  display: flex;
+  width: 30vw;
+  margin-bottom: 3vh;
+
+}
+.aula{
+  display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 10px;
+}
+.materia{
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.subcont2{
+  display: flex;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.categoria{
+  width: 60%;
+  padding-right: 10px;
+
+}
+.fecha{
+  width: 40%;
+  padding-left: 10px;
+
+}
+.fecha input{
+  width: 95%;
+  height: 45%;
+}
+
+h1, h3 {
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 30%;
+  height: 10%;
+  margin-top: 4%;
+  margin-bottom: 5%;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+

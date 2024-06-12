@@ -2,7 +2,7 @@ body {
     font-family: "Noto Sans JP", sans-serif;
     margin: 0;
     padding: 0;
-    height: 99vh;
+    height: 100vh;
     background-color: #DBE2FF;
     color: white;
 }
@@ -10,10 +10,7 @@ body {
 .contego {
     display: flex;
     flex-wrap: wrap;
-    height: 90%;
-    margin-top: 1%;
-    margin-left: 5%;
-    margin-right: 5%;
+    height: 98%;
 }
 
 .panel1 {
@@ -279,49 +276,64 @@ table.blueTable {
     height: 80%;
     text-align: left;
     border-collapse: collapse;
-  }
-  table.blueTable td, table.blueTable th {
+}
+
+table.blueTable td,
+table.blueTable th {
     border: 2px solid #184789;
-    padding: 10px 10px;
-  }
-  table.blueTable tbody td {
+    padding: 10px;
+    max-width: 8vw;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Mostrar puntos suspensivos si el texto es demasiado largo */
+    white-space: nowrap; /* Evitar que el texto se desborde a una nueva línea */
+}
+
+
+table.blueTable tbody td {
     font-size: 13px;
-  }
-  table.blueTable thead {
+}
+
+table.blueTable thead {
     background: #F3F3FE;
     background: -moz-linear-gradient(top, #f6f6fe 0%, #f4f4fe 66%, #F3F3FE 100%);
     background: -webkit-linear-gradient(top, #f6f6fe 0%, #f4f4fe 66%, #F3F3FE 100%);
     background: linear-gradient(to bottom, #f6f6fe 0%, #f4f4fe 66%, #F3F3FE 100%);
-  }
-  table.blueTable thead th {
+}
+
+table.blueTable thead th {
     font-size: 15px;
     font-weight: bold;
     color: #12458D;
     text-align: center;
     border-left: 2px solid #184789;
-  }
-  
-  table.blueTable tfoot {
+}
+
+table.blueTable tfoot {
     font-size: 14px;
     font-weight: bold;
     color: #FFFFFF;
     background: rgb(130, 154, 180);
-  }
-  
-  table.blueTable tfoot td {
+}
+
+table.blueTable tfoot td {
     font-size: 14px;
-  }
-  table.blueTable tfoot .links {
+}
+
+table.blueTable tfoot .links {
     text-align: right;
-  }
-  table.blueTable tfoot .links a{
+}
+
+table.blueTable tfoot .links a {
     display: inline-block;
     background: #1C6EA4;
     color: #FFFFFF;
     padding: 2px 8px;
     border-radius: 5px;
-  }
-  table.blueTable tr td:first-child{
-    width: 10px;
-  }
+}
 
+table.blueTable tr td:first-child {
+    width: 10px;
+}
+body > div > div.panel3 > div > table > thead > tr > th:nth-child(8) > i.bi.bi-check-circle-fill{
+    margin-right: 10px;
+}

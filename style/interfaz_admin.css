@@ -10,10 +10,7 @@ body {
 .contego {
     display: flex;
     flex-wrap: wrap;
-    height: 90%;
-    margin-top: 1%;
-    margin-left: 5%;
-    margin-right: 5%;
+    height: 99%;
 }
 
 .panel1 {
@@ -212,15 +209,19 @@ body {
     flex-direction: column;
     height: fit-content;
 }
-.eventos .titulado{
+.otros.recientes .titulado{
     background-color: rgb(130, 154, 180);
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     width: 100%;
 }
-.eventos .titulado h1{
+.recientes .titulado h1{
     padding-left: 10px;
 }
+body > div > div.panel3 > div > div.otros > div.recientes > div > h1{
+    margin: 0px;
+}
+
 
 table {
     width: 100%;

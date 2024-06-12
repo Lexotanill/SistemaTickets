@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background-color: #282A36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #DDDDDD;
+  color: #333;
+  font-family: "Roboto Mono", sans-serif;
+  box-shadow: 1px 5px 9px rgba(211, 211, 211, 0.7);
+}
+
+.login_btn {
+  font-size: 20px;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  background-color: #003A74;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: linear-gradient(-90deg, #003A74, #006AD5);
+  box-shadow: 1px 5px 9px rgba(211, 211, 211, 0.9);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login_btn:hover {
+  background: linear-gradient(-90deg, #006AD5, #003A74);
+}

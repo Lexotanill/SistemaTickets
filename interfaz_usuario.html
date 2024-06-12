@@ -11,14 +11,25 @@
     <div class="titulo">
       <h1>Enviar ticket</h1>
     </div>
-    <form action="documento.php" method="POST">
+    <form action="documentos.php" method="POST">
       <div class="subcont1">
         <div class="aula">
           <label for="aula">Seleccione el Aula:</label>
           <select id="aula" name="aula">
+            <option value="aulaChica">Aula Chica</option>
+            <option value="aulaGrande">Aula Grande</option>
             <option value="aula1">Aula 1</option>
             <option value="aula2">Aula 2</option>
             <option value="aula3">Aula 3</option>
+            <option value="aula4">Aula 4</option>
+            <option value="aula5">Aula 5</option>
+            <option value="aula6">Aula 6</option>
+            <option value="laboratorio1">Laboratorio 1</option>
+            <option value="laboratorio2">Laboratorio 2</option>
+            <option value="laboratorio3">Laboratorio 3</option>
+            <option value="laboratorio4">Laboratorio 4</option>
+            <option value="taller1">Taller 1</option>
+            <option value="taller2">Taller 2</option>
           </select>
         </div>
         <div class="materia">
@@ -30,9 +41,10 @@
       <div class="categoria">
         <label for="categoria">Categoría:</label>
         <select id="categoria" name="categoria">
-          <option value="categoria1">Categoría 1</option>
-          <option value="categoria2">Categoría 2</option>
-          <option value="categoria3">Categoría 3</option>
+          <option value="categoria1">Solicitud de Laptops</option>
+          <option value="categoria2">Tickets de Reparaciones</option>
+          <option value="categoria3">Tickets de Wifi</option>
+          <option value="categoria4">Pedidos al Pañol</option>
         </select>
       </div>
       <div class="fecha">

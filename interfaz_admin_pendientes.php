@@ -6,6 +6,12 @@ if (!$connect) {
     die("Error de conexión a la base de datos: " . mysqli_connect_error());
 }
 
+// Incluir PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Asegúrate de que la ruta a autoload.php de PHPMailer sea correcta
+
 // Determinar la página actual
 $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 $tickets_por_pagina = 6;
@@ -18,9 +24,125 @@ if (isset($_POST['submit'])) {
             $ticketID = str_replace('estado_', '', $key);
             $nuevo_estado = mysqli_real_escape_string($connect, $value);
 
+            // Actualizar el estado del ticket en la base de datos
             $update_query = "UPDATE `tickets` SET `Estado` = '$nuevo_estado' WHERE `TicketID` = $ticketID";
             if (!mysqli_query($connect, $update_query)) {
                 die("Error al actualizar el estado del ticket $ticketID: " . mysqli_error($connect));
+            }
+
+            // Consultar la información del ticket actualizado
+            $consulta_ticket = "SELECT `TicketID`, `aula`, `materia`, `Descripcion`, `Estado`, `FechaCreacion`, `categoria`, `mail` FROM `tickets` WHERE `TicketID` = $ticketID";
+            $result_ticket = mysqli_query($connect, $consulta_ticket);
+            $row = mysqli_fetch_assoc($result_ticket);
+
+            // Enviar correo electrónico si el estado es "Realizado" o "Rechazado"
+            if ($nuevo_estado == 'Realizado' || $nuevo_estado == 'Rechazado') {
+                $mail = new PHPMailer(true);
+                try {
+                    // Configuración del servidor de correo
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com'; // Reemplaza con tu servidor SMTP
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'ilucero@itel.edu.ar'; // Reemplaza con tu email
+                    $mail->Password = 'vvfy rcay uwjt dmgx'; // Reemplaza con tu contraseña de email
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                    $mail->Port = 587;
+
+                    // Configuración del correo
+                    $mail->setFrom('ilucero@itel.edu.ar', 'Sistema de Tickets');
+                    $mail->addAddress($row['mail']); // Dirección del destinatario
+
+                    // Contenido del correo
+                    $mail->isHTML(true);
+                    $mail->Subject = 'Actualización de Estado de Ticket';
+                    $mail->Body    = '
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualización de Estado de Ticket</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f2f3f8;
+            font-family: \'Open Sans\', sans-serif;
+        }
+        .container {
+            max-width: 670px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 3px;
+            box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+        }
+        .header {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .header img {
+            width: 80px;
+        }
+        .content {
+            padding: 0 40px;
+        }
+        .content h1 {
+            color: #1e1e2d;
+            font-weight: 400;
+            font-size: 32px;
+            margin: 0;
+        }
+        .content hr {
+            border: 1px solid #cecece;
+            width: 100px;
+            margin: 29px 0 26px;
+        }
+        .content p {
+            color: #455056;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" class="container">
+        <tr>
+            <td class="header">
+                <img src="https://itel.edu.ar/img/ITEL3.png" title="logo" alt="logo">
+            </td>
+        </tr>
+        <tr>
+            <td class="content">
+                <h1>Actualización de Ticket</h1>
+                <hr>
+                <p>Estimado(a),</p>
+                <p>Le informamos que el estado de su ticket con ID <strong>' . $ticketID . '</strong> ha sido actualizado a: <strong>' . $nuevo_estado . '</strong>.</p>
+                <p>Detalles del ticket:</p>
+                <p><strong>Aula:</strong> ' . $row['aula'] . '</p>
+                <p><strong>Materia:</strong> ' . $row['materia'] . '</p>
+                <p><strong>Descripción:</strong> ' . $row['Descripcion'] . '</p>
+                <p>Gracias por su paciencia y colaboración.</p>
+                <p>Saludos cordiales,</p>
+                <p>Equipo de Soporte</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="footer">
+                &copy; ' . date('Y') . ' ITEL. Todos los derechos reservados.
+            </td>
+        </tr>
+    </table>
+</body>
+</html>';
+
+
+                    $mail->send();
+                } catch (Exception $e) {
+                    echo "El mensaje no pudo ser enviado. Mailer Error: {$mail->ErrorInfo}";
+                }
             }
         }
     }
@@ -83,7 +205,6 @@ $total_paginas = ceil($total_tickets / $tickets_por_pagina);
 
                 <table class="blueTable page1">
                     <form method="post" action="">
-
                         <thead>
                             <tr>
                                 <th>Ticket ID</th>
@@ -95,7 +216,6 @@ $total_paginas = ceil($total_tickets / $tickets_por_pagina);
                                 <th>Categoría</th>
                                 <th><i class="bi bi-check-circle-fill"></i></th>
                                 <th><i class="bi bi-x-circle-fill"></i></th>
-
                             </tr>
                         </thead>
                         <tfoot>
@@ -151,6 +271,7 @@ $total_paginas = ceil($total_tickets / $tickets_por_pagina);
                 </form>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

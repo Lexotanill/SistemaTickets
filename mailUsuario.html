@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de Ticket</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f2f3f8; font-family: \'Open Sans\', sans-serif;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 670px; background-color: #fff; border-radius: 3px; box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);">
+        <tr>
+            <td style="padding: 40px 0; text-align: center;">
+                <img src="archivos/escudo_itel.png" width="80" alt="logo">
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0 40px;">
+                <h1 style="color: #1e1e2d; font-weight: 400; font-size: 32px; margin: 0;">Nueva Solicitud</h1>
+                <hr style="border: 1px solid #cecece; width: 100px; margin: 29px 0 26px;">
+                <table cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #ededed;">
+                    <tr>
+                        <td style="padding: 10px; width: 35%; font-weight: 500; color: rgba(0, 0, 0, 0.64);">Aula:</td>
+                        <td style="padding: 10px; color: #455056;">' . $row['aula'] . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; width: 35%; font-weight: 500; color: rgba(0, 0, 0, 0.64);">Materia:</td>
+                        <td style="padding: 10px; color: #455056;">' . $row['materia'] . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; width: 35%; font-weight: 500; color: rgba(0, 0, 0, 0.64);">Categoría:</td>
+                        <td style="padding: 10px; color: #455056;">' . $row['categoria'] . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; width: 35%; font-weight: 500; color: rgba(0, 0, 0, 0.64);">Fecha de Creación:</td>
+                        <td style="padding: 10px; color: #455056;">' . $row['FechaCreacion'] . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; width: 35%; font-weight: 500; color: rgba(0, 0, 0, 0.64);">Descripción:</td>
+                        <td style="padding: 10px; color: #455056;">' . $row['Descripcion'] . '</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

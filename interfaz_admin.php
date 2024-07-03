@@ -20,7 +20,7 @@ $result_pendientes = mysqli_query($connect, $consulta_tickets_pendientes);
 $total_pendientes = mysqli_fetch_assoc($result_pendientes)['total_pendientes'];
 
 // Obtener tickets recientes
-$consulta_tickets_recientes = "SELECT `TicketID`, `aula`, `Descripcion` FROM `tickets` ORDER BY `FechaCreacion` DESC LIMIT 5";
+$consulta_tickets_recientes = "SELECT `TicketID`, `aula`, `Descripcion` FROM `tickets` ORDER BY `FechaCreacion` DESC LIMIT 4";
 $result_tickets_recientes = mysqli_query($connect, $consulta_tickets_recientes);
 ?>
 
@@ -105,7 +105,7 @@ $result_tickets_recientes = mysqli_query($connect, $consulta_tickets_recientes);
                                     echo "<tr>";
                                     echo "<td>{$row['TicketID']}</td>";
                                     echo "<td>{$row['aula']}</td>";
-                                    echo "<td>{$row['Descripcion']}</td>";
+                                    echo "<td class='descripcion-cell'>{$row['Descripcion']}</td>";
                                     echo "</tr>";
                                 }
                                 ?>
